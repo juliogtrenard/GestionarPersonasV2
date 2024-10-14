@@ -1,6 +1,9 @@
 module es.juliogtrenard.gestionarpersonas {
     requires javafx.controls;
     requires javafx.fxml;
+    requires ikonli.javafx;
+    requires ikonli.fontawesome.pack;
+    requires ikonli.core;
 
 
     opens es.juliogtrenard.gestionarpersonas to javafx.fxml;
