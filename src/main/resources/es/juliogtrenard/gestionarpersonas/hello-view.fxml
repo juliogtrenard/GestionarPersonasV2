@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<GridPane alignment="CENTER" hgap="20.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.juliogtrenard.gestionarpersonas.controladores.HelloController">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="298.0" minWidth="10.0" prefWidth="184.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="429.0" minWidth="10.0" prefWidth="423.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    </rowConstraints>
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <VBox prefHeight="200.0" prefWidth="100.0" spacing="15.0" GridPane.rowIndex="1">
+        <padding>
+            <Insets bottom="10.0" top="10.0" />
+        </padding>
+        <GridPane.margin>
+            <Insets />
+        </GridPane.margin>
+        <Label text="Nombre:" />
+        <TextField fx:id="txtNombre" />
+        <Label text="Apellidos:" />
+        <TextField fx:id="txtApellidos" />
+        <Label text="Edad:" />
+        <TextField fx:id="txtEdad" />
+        <Button fx:id="btnAgregar" alignment="CENTER" mnemonicParsing="false" onAction="#agregarPersona" prefHeight="24.0" prefWidth="165.0" text="Agregar Persona" />
+    </VBox>
+    <TableView fx:id="tvTabla" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowSpan="3">
+        <columns>
+            <TableColumn fx:id="tcNombre" editable="false" prefWidth="126.0" text="NOMBRE">
+                <cellValueFactory>
+                    <PropertyValueFactory property="nombre" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="tcApellidos" editable="false" prefWidth="154.0" text="APELLIDOS">
+                <cellValueFactory>
+                    <PropertyValueFactory property="apellidos" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="tcEdad" editable="false" prefWidth="139.0" text="EDAD">
+                <cellValueFactory>
+                    <PropertyValueFactory property="edad" />
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+</GridPane>
