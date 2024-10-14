@@ -2,9 +2,9 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
 <?import javafx.scene.layout.*?>
 
-<?import javafx.scene.control.cell.PropertyValueFactory?>
 <GridPane alignment="CENTER" hgap="20.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.juliogtrenard.gestionarpersonas.controladores.HelloController">
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="298.0" minWidth="10.0" prefWidth="184.0" />
@@ -14,6 +14,7 @@
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
     </rowConstraints>
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
@@ -31,25 +32,33 @@
         <TextField fx:id="txtApellidos" />
         <Label text="Edad:" />
         <TextField fx:id="txtEdad" />
-        <Button fx:id="btnAgregar" alignment="CENTER" mnemonicParsing="false" onAction="#agregarPersona" prefHeight="24.0" prefWidth="165.0" text="Agregar Persona" />
+        <Button alignment="CENTER" mnemonicParsing="false" onAction="#agregarPersona" prefHeight="24.0" prefWidth="165.0" text="Agregar Persona" />
     </VBox>
     <TableView fx:id="tvTabla" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowSpan="3">
         <columns>
-            <TableColumn fx:id="tcNombre" editable="false" prefWidth="126.0" text="NOMBRE">
+            <TableColumn editable="false" prefWidth="126.0" text="NOMBRE">
                 <cellValueFactory>
                     <PropertyValueFactory property="nombre" />
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="tcApellidos" editable="false" prefWidth="154.0" text="APELLIDOS">
+            <TableColumn editable="false" prefWidth="154.0" text="APELLIDOS">
                 <cellValueFactory>
                     <PropertyValueFactory property="apellidos" />
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="tcEdad" editable="false" prefWidth="139.0" text="EDAD">
+            <TableColumn editable="false" prefWidth="139.0" text="EDAD">
                 <cellValueFactory>
                     <PropertyValueFactory property="edad" />
                 </cellValueFactory>
             </TableColumn>
         </columns>
     </TableView>
+    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+        <Button fx:id="btnModificar" mnemonicParsing="false" text="Modificar">
+           <HBox.margin>
+               <Insets right="100.0" />
+           </HBox.margin>
+        </Button>
+        <Button fx:id="btnEliminar" mnemonicParsing="false" text="Eliminar" />
+    </HBox>
 </GridPane>
