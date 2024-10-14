@@ -3,8 +3,13 @@ package es.juliogtrenard.gestionarpersonas;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.SnapshotParameters;
 import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import org.kordamp.ikonli.fontawesome.FontAwesome;
+import org.kordamp.ikonli.javafx.FontIcon;
+
 import java.io.IOException;
 
 /**
@@ -23,7 +28,20 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 500);
-        stage.getIcons().add(new Image(String.valueOf(getClass().getResource("/img/library_icon.png"))));
+
+        // Crear el FontIcon
+        FontIcon fontIcon = new FontIcon(FontAwesome.BOOK);
+        fontIcon.setIconSize(16);
+        fontIcon.setIconColor(Color.BLUE);
+
+        // Convertir el FontIcon a una Image
+        SnapshotParameters params = new SnapshotParameters();
+        params.setFill(Color.TRANSPARENT);
+        Image icon = fontIcon.snapshot(params, null);
+
+        // Añadir la imagen como icono de la ventana
+        stage.getIcons().add(icon);
+
         stage.setTitle("PERSONAS");
         stage.setScene(scene);
 

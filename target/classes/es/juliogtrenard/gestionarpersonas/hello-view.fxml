@@ -54,11 +54,11 @@
         </columns>
     </TableView>
     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
-        <Button fx:id="btnModificar" mnemonicParsing="false" text="Modificar">
+        <Button mnemonicParsing="false" text="Modificar">
            <HBox.margin>
                <Insets right="100.0" />
            </HBox.margin>
         </Button>
-        <Button fx:id="btnEliminar" mnemonicParsing="false" text="Eliminar" />
+        <Button mnemonicParsing="false" text="Eliminar" />
     </HBox>
 </GridPane>
