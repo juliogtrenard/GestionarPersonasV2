@@ -47,11 +47,13 @@ public class HelloController {
 
     /**
      * Método llamado al inicializar el controlador.
-     * Se utiliza para inicializar la lista de personas.
+     * Se utiliza para inicializar la lista de personas y llamar al metodo para mostrar los campos
+     * cuando se selecciona una persona en la tabla.
      */
     @FXML
     public void initialize() {
         listaPersonas = new ArrayList<>();
+        mostrarCampos();
     }
 
     /**
@@ -191,6 +193,20 @@ public class HelloController {
         }
 
         return errores;
+    }
+
+    /**
+     * Cuando se selecciona una persona en la tabla, actualiza automáticamente
+     * los campos de texto (nombre, apellidos y edad) con los datos de la persona seleccionada.
+     */
+    private void mostrarCampos() {
+        tvTabla.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                txtNombre.setText(newValue.getNombre());
+                txtApellidos.setText(newValue.getApellidos());
+                txtEdad.setText(String.valueOf(newValue.getEdad()));
+            }
+        });
     }
 
     /**
