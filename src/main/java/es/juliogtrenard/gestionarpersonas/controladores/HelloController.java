@@ -78,6 +78,7 @@ public class HelloController {
             crearPersona();
         }
 
+        tvTabla.getSelectionModel().clearSelection();
         limpiarCampos();
     }
 
@@ -99,6 +100,29 @@ public class HelloController {
         } else {
             mostrarAlertaErrores("Debes seleccionar una persona para eliminarla.");
         }
+
+        tvTabla.getSelectionModel().clearSelection();
+        limpiarCampos();
+    }
+
+    @FXML
+    void modificarPersona(ActionEvent event) {
+        int index = tvTabla.getSelectionModel().getSelectedIndex();
+
+        if (index >= 0) {
+            if(esPersonaRepetida()) {
+                mostrarAlertaErrores("No se puede modificar por una persona que ya está en la tabla.");
+            } else {
+                //TODO modificar la fila de la persona seleccionada
+
+                mostrarAlertaValido("Modificado correctamente.");
+            }
+        } else {
+            mostrarAlertaErrores("Debes seleccionar una persona para modificarla.");
+        }
+
+        tvTabla.getSelectionModel().clearSelection();
+        limpiarCampos();
     }
 
     /**
