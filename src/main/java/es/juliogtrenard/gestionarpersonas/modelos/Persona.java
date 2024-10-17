@@ -60,6 +60,33 @@ public class Persona {
     }
 
     /**
+     * Establece el nombre de la persona.
+     *
+     * @param nombre el nuevo nombre de la persona
+     */
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    /**
+     * Establece los apellidos de la persona.
+     *
+     * @param apellidos los nuevos apellidos de la persona
+     */
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+
+    /**
+     * Establece la edad de la persona.
+     *
+     * @param edad la nueva edad de la persona
+     */
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    /**
      * Compara si dos Personas son iguales.
      *
      * @param o la Persona a comparar.
