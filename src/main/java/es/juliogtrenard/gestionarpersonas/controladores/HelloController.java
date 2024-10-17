@@ -68,17 +68,37 @@ public class HelloController {
         String errores = validarEntradas();
 
         if (!errores.isEmpty()) {
-            mostrarAlerta(errores);
+            mostrarAlertaErrores(errores);
             return;
         }
 
         if (esPersonaRepetida()) {
-            mostrarAlerta("Persona repetida");
+            mostrarAlertaErrores("Persona repetida");
         } else {
             crearPersona();
         }
 
         limpiarCampos();
+    }
+
+    /**
+     * Maneja el evento de eliminar una persona de la lista y de la tabla.
+     * Si no se selecciona una persona, muestra un mensaje de error.
+     * Si se selecciona una persona, muestra un mensaje de confirmación.
+     * @param event El evento que activa este método.
+     */
+    @FXML
+    void eliminarPersona(ActionEvent event) {
+        int index = tvTabla.getSelectionModel().getSelectedIndex();
+
+        if (index >= 0) {
+            listaPersonas.remove(index);
+            tvTabla.getItems().remove(index);
+            
+            mostrarAlertaValido("Eliminado correctamente.");
+        } else {
+            mostrarAlertaErrores("Debes seleccionar una persona para eliminarla.");
+        }
     }
 
     /**
@@ -95,12 +115,7 @@ public class HelloController {
 
         tvTabla.getItems().add(persona);
 
-        Alert alerta = new Alert(Alert.AlertType.INFORMATION, "Persona añadida correctamente.");
-        alerta.setHeaderText(null);
-        alerta.setTitle("INFO:");
-        Stage stage = (Stage) alerta.getDialogPane().getScene().getWindow();
-        stage.getIcons().add(new Image(String.valueOf(getClass().getResource("/img/library_icon.png"))));
-        alerta.showAndWait();
+        mostrarAlertaValido("Persona añadida correctamente.");
     }
 
     /**
@@ -147,10 +162,24 @@ public class HelloController {
      *
      * @param errores El mensaje de error a mostrar.
      */
-    private void mostrarAlerta(String errores) {
+    private void mostrarAlertaErrores(String errores) {
         Alert alerta = new Alert(Alert.AlertType.ERROR, errores);
         alerta.setHeaderText(null);
         alerta.setTitle("ERROR:");
+        Stage stage = (Stage) alerta.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image(String.valueOf(getClass().getResource("/img/library_icon.png"))));
+        alerta.showAndWait();
+    }
+
+    /**
+     * Muestra una alerta con el mensaje de confirmación proporcionado.
+     *
+     * @param mensaje El mensaje a mostrar.
+     */
+    private void mostrarAlertaValido(String mensaje) {
+        Alert alerta = new Alert(Alert.AlertType.INFORMATION, mensaje);
+        alerta.setHeaderText(null);
+        alerta.setTitle("INFO:");
         Stage stage = (Stage) alerta.getDialogPane().getScene().getWindow();
         stage.getIcons().add(new Image(String.valueOf(getClass().getResource("/img/library_icon.png"))));
         alerta.showAndWait();

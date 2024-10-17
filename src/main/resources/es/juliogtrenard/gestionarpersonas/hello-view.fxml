@@ -59,6 +59,6 @@
                <Insets right="100.0" />
            </HBox.margin>
         </Button>
-        <Button mnemonicParsing="false" text="Eliminar" />
+        <Button mnemonicParsing="false" onAction="#eliminarPersona" text="Eliminar" />
     </HBox>
 </GridPane>
