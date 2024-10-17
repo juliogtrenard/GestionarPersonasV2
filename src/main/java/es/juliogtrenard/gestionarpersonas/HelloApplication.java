@@ -29,18 +29,7 @@ public class HelloApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 500);
 
-        // Crear el FontIcon
-        FontIcon fontIcon = new FontIcon(FontAwesome.BOOK);
-        fontIcon.setIconSize(16);
-        fontIcon.setIconColor(Color.BLUE);
-
-        // Convertir el FontIcon a una Image
-        SnapshotParameters params = new SnapshotParameters();
-        params.setFill(Color.TRANSPARENT);
-        Image icon = fontIcon.snapshot(params, null);
-
-        // Añadir la imagen como icono de la ventana
-        stage.getIcons().add(icon);
+        stage.getIcons().add(new Image(String.valueOf(getClass().getResource("/img/library_icon.png"))));
 
         stage.setTitle("PERSONAS");
         stage.setScene(scene);
