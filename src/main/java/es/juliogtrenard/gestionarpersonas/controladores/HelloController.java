@@ -118,6 +118,13 @@ public class HelloController {
             if(esPersonaRepetida()) {
                 mostrarAlertaErrores("No se puede modificar por una persona que ya está en la tabla.");
             } else {
+                String errores = validarEntradas();
+
+                if (!errores.isEmpty()) {
+                    mostrarAlertaErrores(errores);
+                    return;
+                }
+
                 Persona personaSeleccionada = listaPersonas.get(index);
                 personaSeleccionada.setNombre(txtNombre.getText());
                 personaSeleccionada.setApellidos(txtApellidos.getText());
