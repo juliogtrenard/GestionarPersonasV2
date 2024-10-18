@@ -105,6 +105,11 @@ public class HelloController {
         limpiarCampos();
     }
 
+    /**
+     * Modifica la persona seleccionada en la tabla y actualiza sus datos en la lista y la tabla.
+     *
+     * @param event El evento que activa este método.
+     */
     @FXML
     void modificarPersona(ActionEvent event) {
         int index = tvTabla.getSelectionModel().getSelectedIndex();
@@ -113,7 +118,12 @@ public class HelloController {
             if(esPersonaRepetida()) {
                 mostrarAlertaErrores("No se puede modificar por una persona que ya está en la tabla.");
             } else {
-                //TODO modificar la fila de la persona seleccionada
+                Persona personaSeleccionada = listaPersonas.get(index);
+                personaSeleccionada.setNombre(txtNombre.getText());
+                personaSeleccionada.setApellidos(txtApellidos.getText());
+                personaSeleccionada.setEdad(Integer.parseInt(txtEdad.getText()));
+
+                tvTabla.refresh();
 
                 mostrarAlertaValido("Modificado correctamente.");
             }
