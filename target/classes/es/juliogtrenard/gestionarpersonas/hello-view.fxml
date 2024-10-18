@@ -52,6 +52,9 @@
                 </cellValueFactory>
             </TableColumn>
         </columns>
+      <columnResizePolicy>
+         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+      </columnResizePolicy>
     </TableView>
     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
         <Button mnemonicParsing="false" onAction="#modificarPersona" text="Modificar">
