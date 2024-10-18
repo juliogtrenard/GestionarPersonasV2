@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"es.juliogtrenard.gestionarpersonas","l":"HelloApplication"},{"p":"es.juliogtrenard.gestionarpersonas.controladores","l":"HelloController"},{"p":"es.juliogtrenard.gestionarpersonas.modelos","l":"Persona"}];updateSearchResults();
